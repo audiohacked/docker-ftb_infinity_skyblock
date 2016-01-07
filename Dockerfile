@@ -11,22 +11,18 @@ WORKDIR /minecraft
 
 USER root
 COPY CheckEula.sh /minecraft/
-# RUN apt-get update && apt-get install -y tmux
-RUN \
-    groupadd -r minecraft && \
-    useradd -r -m -g minecraft minecraft && \
+RUN useradd -m -U minecraft && \
     mkdir -p /minecraft/world && \
-    chown -R minecraft:minecraft /minecraft && \
     curl -SLO ${BASE_URL}/${FTB_VERSION}/${SERVER_FILE}  && \
     unzip ${SERVER_FILE} && \
     chmod u+x FTBInstall.sh ServerStart.sh CheckEula.sh && \
     rm eula.txt && \
     sed -i '2i /bin/bash /minecraft/CheckEula.sh' /minecraft/ServerStart.sh && \
-    /minecraft/FTBInstall.sh
+    chown -R minecraft:minecraft /minecraft
 
 USER minecraft
+RUN /minecraft/FTBInstall.sh
 EXPOSE ${SERVER_PORT}
 VOLUME ["/minecraft/world"]
 
-# CMD tmux new -s minecraft -d /home/minecraft/ServerStart.sh
 CMD ["/bin/bash", "/minecraft/ServerStart.sh"]
