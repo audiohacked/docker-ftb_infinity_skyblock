@@ -1,5 +1,5 @@
 # Copyright 2015 Sean Nelson <audiohacked@gmail.com>
-FROM java:7-jre
+FROM java:8-jre
 MAINTAINER Sean Nelson <audiohacked@gmail.com>
 
 ENV BASE_URL="http://ftb.cursecdn.com/FTB2/modpacks/FTBInfinityEvolvedSkyblock"
