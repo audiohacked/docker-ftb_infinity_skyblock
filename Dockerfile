@@ -22,8 +22,8 @@ RUN useradd -m -U minecraft && \
 
 USER minecraft
 WORKDIR /minecraft
-RUN FTBInstall.sh
+RUN ./FTBInstall.sh
 EXPOSE ${SERVER_PORT}
 VOLUME ["/minecraft/world"]
 
-CMD ["/bin/bash", "ServerStart.sh"]
+CMD ["/bin/bash", "./ServerStart.sh"]
