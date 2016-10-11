@@ -22,8 +22,7 @@ RUN adduser -D minecraft && \
     chown -R minecraft:minecraft /minecraft
 
 USER minecraft
-WORKDIR /minecraft
-RUN ./FTBInstall.sh
+RUN /minecraft/FTBInstall.sh
 EXPOSE ${SERVER_PORT}
 VOLUME ["/minecraft/world"]
 
