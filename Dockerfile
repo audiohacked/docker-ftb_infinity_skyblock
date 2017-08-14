@@ -3,7 +3,7 @@ FROM openjdk:8-jre-alpine
 MAINTAINER Sean Nelson <audiohacked@gmail.com>
 
 ENV BASE_URL="http://ftb.cursecdn.com/FTB2/modpacks/FTBInfinityEvolvedSkyblock" \
-	FTB_VERSION="2_0_0" \
+	FTB_VERSION="2_0_1" \
 	SERVER_FILE="FTBInfinityEvolvedSkyblockServer.zip" \
 	SERVER_PORT=25565
 
